@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Marvel Character Picker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
     <img src="img/game_logo.png" class="logo" alt="Game Logo">
@@ -18,10 +21,48 @@
     </div>
 
     <script>
-        const categories = {
-            vanguard: [/* previous vanguard list */],
-            strategist: [/* previous strategist list */],
-            duelist: [/* previous duelist list */]
+    const categories = {
+            vanguard: [
+                'Captain America',
+                'Doctor Strange',
+                'Groot',
+                'Bruce Banner',
+                'Magneto',
+                'Peni Parker',
+                'Thor',
+                'Venom'
+            ],
+            strategist: [
+                'Adam Warlock',
+                'Cloak & Dagger',
+                'Jeff The Land Shark',
+                'Loki',
+                'Luna Snow',
+                'Mantis',
+                'Rocket Raccoon',
+                'Invisible Woman'
+            ],
+            duelist: [
+                'Black Panther',
+                'Black Widow',
+                'Hawkeye',
+                'Hela',
+                'Iron Fist',
+                'Iron Man',
+                'Magik',
+                'Moon Knight',
+                'Mr Fantastic',
+                'Namor',
+                'Psylocke',
+                'Scarlet Witch',
+                'Spider-Man',
+                'Squirrel Girl',
+                'Star-Lord',
+                'Storm',
+                'The Punisher',
+                'Winter Soldier',
+                'Wolverine'
+            ]
         };
 
         let selectedCategories = ['vanguard', 'strategist', 'duelist'];
@@ -37,6 +78,7 @@
                 selectedCategories.push(category);
             }
             
+            // Ensure at least one category is always selected
             if(selectedCategories.length === 0) {
                 selectedCategories.push(category);
                 btn.classList.add('active');
@@ -46,6 +88,7 @@
         function pickCharacter() {
             if (isPicking) return;
             
+            // Combine characters from selected categories
             const combinedCharacters = selectedCategories.reduce((acc, category) => {
                 return acc.concat(categories[category]);
             }, []);
