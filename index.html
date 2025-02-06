@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marvel Character Picker</title>
+    <style>
+        body {
+            background: transparent;
+            margin: 0;
+            font-family: 'Marvel', 'Arial Black', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #e23636, #504a4a);
+        }
+
+        #display {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.5em;
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            min-width: 400px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background: #e23636;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px;
+            transition: transform 0.2s;
+            font-family: 'Marvel', sans-serif;
+        }
+
+        button:hover {
+            background: #ff6161;
+            transform: scale(1.05);
+        }
+
+        @keyframes marvelScroll {
+            0% { opacity: 0.2; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .scrolling {
+            animation: marvelScroll 0.1s ease-out;
+        }
+
+        .title {
+            color: white;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="title">Marvel Random Picker</div>
+    <div id="display">???</div>
+    <button onclick="pickCharacter()">ASSEMBLE!</button>
+
+    <script>
+        const marvelCharacters = [
+            'Adam Warlock',
+            'Black Panther',
+            'Black Widow',
+            'Bruce Banner',
+            'Captain America',
+            'Cloak & Dagger',
+            'Doctor Strange',
+            'Groot',
+            'Hawkeye',
+            'Hela',
+            'Invisible Woman',
+            'Iron Fist',
+            'Iron Man',
+            'Jeff The Land Shark',
+            'Loki',
+            'Luna Snow',
+            'Magik',
+            'Magneto',
+            'Mantis',
+            'Moon Knight',
+            'Mr Fantastic',
+            'Namor',
+            'Peni Parker',
+            'Psylocke',
+            'Rocket Raccoon',
+            'Scarlet Witch',
+            'Spider-Man',
+            'Squirrel Girl',
+            'Star-Lord',
+            'Storm',
+            'The Punisher',
+            'Thor',
+            'Venom',
+            'Winter Soilder',
+            'Wolverine'
+        ];
+
+        let isPicking = false;
+
+        function pickCharacter() {
+            if (isPicking) return;
+            
+            isPicking = true;
+            const display = document.getElementById('display');
+            let iterations = 0;
+            const totalSteps = 35;
+            
+            const interval = setInterval(() => {
+                display.classList.remove('scrolling');
+                void display.offsetWidth; // Trigger reflow
+                display.classList.add('scrolling');
+                
+                const randomIndex = Math.floor(Math.random() * marvelCharacters.length);
+                display.textContent = marvelCharacters[randomIndex];
+                
+                iterations++;
+                if (iterations >= totalSteps) {
+                    clearInterval(interval);
+                    isPicking = false;
+                    // Trigger Twitch integration here
+                }
+            }, 50 + (iterations * 4));
+        }
+
+        // Basic Twitch integration setup
+        /*
+        window.Twitch.ext.onAuthorized(function(auth) {
+            // Twitch authentication handling
+        });
+
+        window.Twitch.ext.listen('broadcast', (target, contentType, message) => {
+            if (message === 'trigger-pick') {
+                pickCharacter();
+            }
+        });
+        */
+    </script>
+</body>
+</html>
