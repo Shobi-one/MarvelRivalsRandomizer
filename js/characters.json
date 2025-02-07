@@ -1,0 +1,16 @@
+{
+    "vanguard": [
+        "Captain America", "Doctor Strange", "Groot", "Bruce Banner",
+        "Magneto", "Peni Parker", "Thor", "Venom"
+    ],
+    "strategist": [
+        "Adam Warlock", "Cloak & Dagger", "Jeff The Land Shark", "Loki",
+        "Luna Snow", "Mantis", "Rocket Raccoon", "Invisible Woman"
+    ],
+    "duelist": [
+        "Black Panther", "Black Widow", "Hawkeye", "Hela", "Iron Fist",
+        "Iron Man", "Magik", "Moon Knight", "Mr Fantastic", "Namor",
+        "Psylocke", "Scarlet Witch", "Spider-Man", "Squirrel Girl",
+        "Star-Lord", "Storm", "The Punisher", "Winter Soldier", "Wolverine"
+    ]
+}
