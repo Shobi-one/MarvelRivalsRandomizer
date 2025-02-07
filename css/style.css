@@ -33,7 +33,6 @@ body {
 .content-wrapper {
     background: var(--dark-bg);
     border: 4px solid var(--comic-yellow);
-    box-shadow: var(--comic-shadow);
     padding: 2rem;
     margin: 1rem;
     max-width: 800px;
@@ -88,8 +87,8 @@ body {
     background: var(--primary-red);
     color: var(--hero-text);
     transform: translateY(-3px);
-    box-shadow: 0 6px 0 var(--dark-bg);
     text-shadow: 2px 2px 0 var(--dark-bg);
+    transform: translateY(-2px);
 }
 
 #display {
@@ -129,7 +128,6 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 3px;
-    box-shadow: 0 8px 0 var(--dark-bg);
     display: block;
     margin: 0 auto;
     position: relative;
@@ -139,7 +137,6 @@ body {
 
 #assemble-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 0 var(--dark-bg);
     background: #FF1A1A;
 }
 
@@ -205,7 +202,6 @@ body {
     margin: 2rem 0;
     border: 4px solid var(--dark-bg);
     background: var(--hero-text);
-    box-shadow: var(--comic-shadow);
 }
 
 .comic-panel::before {
